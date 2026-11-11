@@ -203,17 +203,13 @@
       overflow: hidden;
       isolation: isolate;
     }
-    .project-cover.has-image { background: linear-gradient(135deg, #16243c, #23375a); }
-    .project-cover.has-image::before, .project-cover.has-image::after { display: none; }
-    .project-image { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-    .project-image.portrait { object-fit: contain; }
     .project-cover::before, .project-cover::after { position: absolute; z-index: -1; border: 1px solid rgba(255,255,255,.23); border-radius: 50%; content: ""; }
     .project-cover::before { width: 180px; height: 180px; transform: translate(42px, 6px); }
     .project-cover::after { width: 235px; height: 235px; transform: translate(42px, 6px); opacity: .55; }
     .cover-symbol { color: rgba(255,255,255,.91); font-size: 50px; font-weight: 300; line-height: 1; text-shadow: 0 5px 32px rgba(5, 13, 29, .3); }
     .cover-index { position: absolute; top: 16px; left: 17px; color: rgba(255,255,255,.78); font-size: 10px; font-weight: 720; letter-spacing: .16em; }
     .cover-type { position: absolute; right: 16px; bottom: 13px; color: rgba(255,255,255,.8); font-size: 10px; letter-spacing: .1em; }
-    /* 学习记录使用 CSS 渐变封面；正式作品直接使用附件中的参赛方案封面图。 */
+    /* 六张封面是纯 CSS 渐变占位；可直接替换渐变、符号或改为实际图片。 */
     .cover-ip { background: radial-gradient(circle at 28% 28%, rgba(255,255,255,.36), transparent 21%), linear-gradient(135deg, #145b72, #237c83 48%, #f28b55); }
     .cover-python { background: radial-gradient(circle at 70% 25%, rgba(255,255,255,.28), transparent 26%), linear-gradient(135deg, #134e73, #1b92a7 58%, #80d4d1); }
     .cover-c { background: radial-gradient(circle at 28% 72%, rgba(255,255,255,.22), transparent 27%), linear-gradient(135deg, #343879, #67549a 52%, #c77e78); }
@@ -408,54 +404,27 @@
         <div class="section-heading reveal">
           <span class="eyebrow">Selected work & learning</span>
           <h2 id="work-title">作品与学习记录<span style="color:var(--cyan)">.</span></h2>
-          <p>从 AI 辅助 IP 角色设计与创意海报，到校园平台体验和专业学习记录，展示已完成的作品与正在积累的过程。</p>
+          <p>从一次 IP 创意实践，到编程与内容创作的入门学习。这里记录正在积累的过程，而不把学习阶段包装成已完成成果。</p>
         </div>
-        <!-- 项目图片与 PPTX 方案位于 assets/；文案和详情链接可在对应卡片中直接替换。 -->
+        <!-- 以下六张渐变封面、卡片文案与详情链接均为可替换内容；年份未在简历中提供时明确标注待补。 -->
         <div class="work-grid">
           <article class="project-card reveal">
-            <div class="project-cover has-image" role="img" aria-label="星轨机巧·未来 AI 辅助 IP 角色设计作品封面">
-              <img class="project-image portrait" src="assets/starlight-mechanical-cover.png" alt="星轨机巧·未来角色设定与三视图展示">
-              <span class="cover-index">01 / IP DESIGN</span><span class="cover-type">PERSONAL ENTRY · 2026</span>
+            <div class="project-cover cover-ip" role="img" aria-label="新创 IP 产品设计渐变占位封面">
+              <span class="cover-index">01 / CREATIVE</span><span class="cover-symbol" aria-hidden="true">✳</span><span class="cover-type">CONCEPT PLACEHOLDER</span>
             </div>
             <div class="project-content">
-              <div class="project-meta"><span>2026 · 个人参赛</span><span class="project-kind">AI 辅助 IP 设计</span></div>
-              <h3>星轨机巧·未来</h3>
-              <p class="project-description">为产教融合 AI 产业学院构思原创角色，完成背景与角色设定，并延展三视图、表情包、系列海报、活动美陈和周边方案。</p>
-              <div class="tag-list"><span class="tag">角色设计</span><span class="tag">即梦 AI</span><span class="tag">豆包</span><span class="tag">IP 延展</span></div>
-              <a class="project-link" href="assets/starlight-mechanical-project.pptx" download>下载完整参赛方案（PPTX） <span aria-hidden="true">↓</span></a>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-cover has-image" role="img" aria-label="AI战神于末日空洞生存创意海报作品封面">
-              <img class="project-image" src="assets/ai-warrior-cover.png" alt="《AI战神于末日空洞生存》双机甲末日海报">
-              <span class="cover-index">02 / AI POSTER</span><span class="cover-type">PERSONAL ENTRY · 2026</span>
-            </div>
-            <div class="project-content">
-              <div class="project-meta"><span>2026 · 个人参赛</span><span class="project-kind">创意海报</span></div>
-              <h3>AI战神于末日空洞生存</h3>
-              <p class="project-description">以《绝区零》空洞世界观为创作基底，围绕 AI 生命体的末日生存命题完成创意海报与产品延展方案。</p>
-              <div class="tag-list"><span class="tag">AI 辅助创作</span><span class="tag">视觉设计</span><span class="tag">末日科幻</span><span class="tag">豆包</span><span class="tag">即梦 AI</span></div>
-              <a class="project-link" href="assets/ai-warrior-poster-project.pptx" download>下载完整参赛方案（PPTX） <span aria-hidden="true">↓</span></a>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-cover cover-market" role="img" aria-label="南苑交易网校园闲置流转平台封面">
-              <span class="cover-index">03 / WEB PLATFORM</span><span class="cover-symbol" aria-hidden="true">↗</span><span class="cover-type">LIVE DEMO</span>
-            </div>
-            <div class="project-content">
-              <div class="project-meta"><span>线上体验</span><span class="project-kind">校园平台</span></div>
-              <h3>南苑交易网</h3>
-              <p class="project-description">AI 校园闲置流转平台，支持浏览南苑校区的闲置物品信息。点击进入你提供的线上体验页面。</p>
-              <div class="tag-list"><span class="tag">校园服务</span><span class="tag">闲置流转</span><span class="tag">在线体验</span></div>
-              <a class="project-link" href="https://nanyuan-market.app.workbuddy.host/?sharecode=P3U5Y3PZEQ" target="_blank" rel="noopener noreferrer">打开平台体验 <span aria-hidden="true">↗</span></a>
+              <div class="project-meta"><span>年份待补</span><span class="project-kind">项目实践</span></div>
+              <h3>新创 IP 产品设计</h3>
+              <p class="project-description">参与科大讯飞产教融合 X+AI 项目，独立完成创意构思与方案设计；目前暂无可展示的项目成果。</p>
+              <div class="tag-list"><span class="tag">X+AI</span><span class="tag">创意构思</span><span class="tag">IP 设计</span></div>
+              <!-- 将 #contact 替换为真实案例详情页或作品链接；当前链接用于提示联系入口。 -->
+              <a class="project-link" href="#contact" title="作品详情链接占位，请替换为真实链接">了解项目状态 <span aria-hidden="true">↗</span></a>
             </div>
           </article>
 
           <article class="project-card reveal">
             <div class="project-cover cover-python" role="img" aria-label="Python 学习记录渐变占位封面">
-              <span class="cover-index">04 / CODE</span><span class="cover-symbol" aria-hidden="true">{ }</span><span class="cover-type">LEARNING NOTE</span>
+              <span class="cover-index">02 / CODE</span><span class="cover-symbol" aria-hidden="true">{ }</span><span class="cover-type">LEARNING NOTE</span>
             </div>
             <div class="project-content">
               <div class="project-meta"><span>2026.09—至今</span><span class="project-kind">学习记录</span></div>
@@ -468,7 +437,7 @@
 
           <article class="project-card reveal">
             <div class="project-cover cover-c" role="img" aria-label="C 语言学习记录渐变占位封面">
-              <span class="cover-index">05 / CODE</span><span class="cover-symbol" aria-hidden="true">C</span><span class="cover-type">LEARNING NOTE</span>
+              <span class="cover-index">03 / CODE</span><span class="cover-symbol" aria-hidden="true">C</span><span class="cover-type">LEARNING NOTE</span>
             </div>
             <div class="project-content">
               <div class="project-meta"><span>2026.09—至今</span><span class="project-kind">学习记录</span></div>
@@ -481,7 +450,7 @@
 
           <article class="project-card reveal">
             <div class="project-cover cover-ugc" role="img" aria-label="UGC 内容创作学习记录渐变占位封面">
-              <span class="cover-index">06 / CONTENT</span><span class="cover-symbol" aria-hidden="true">✦</span><span class="cover-type">LEARNING NOTE</span>
+              <span class="cover-index">04 / CONTENT</span><span class="cover-symbol" aria-hidden="true">✦</span><span class="cover-type">LEARNING NOTE</span>
             </div>
             <div class="project-content">
               <div class="project-meta"><span>高中阶段 · 年份待补</span><span class="project-kind">学习记录</span></div>
@@ -494,7 +463,7 @@
 
           <article class="project-card reveal">
             <div class="project-cover cover-edit" role="img" aria-label="视频剪辑学习记录渐变占位封面">
-              <span class="cover-index">07 / VIDEO</span><span class="cover-symbol" aria-hidden="true">▷</span><span class="cover-type">LEARNING NOTE</span>
+              <span class="cover-index">05 / VIDEO</span><span class="cover-symbol" aria-hidden="true">▷</span><span class="cover-type">LEARNING NOTE</span>
             </div>
             <div class="project-content">
               <div class="project-meta"><span>初中阶段 · 年份待补</span><span class="project-kind">学习记录</span></div>
@@ -507,7 +476,7 @@
 
           <article class="project-card reveal">
             <div class="project-cover cover-data" role="img" aria-label="数据科学专业学习记录渐变占位封面">
-              <span class="cover-index">08 / DATA</span><span class="cover-symbol" aria-hidden="true">∿</span><span class="cover-type">LEARNING NOTE</span>
+              <span class="cover-index">06 / DATA</span><span class="cover-symbol" aria-hidden="true">∿</span><span class="cover-type">LEARNING NOTE</span>
             </div>
             <div class="project-content">
               <div class="project-meta"><span>2026.09—至今</span><span class="project-kind">专业方向</span></div>
@@ -518,7 +487,7 @@
             </div>
           </article>
         </div>
-        <p class="work-footnote"><strong>说明：</strong>两份参赛方案已提供完整 PPTX 下载；学习经历卡片为学习记录，不代表已完成的独立作品。</p>
+        <p class="work-footnote"><strong>说明：</strong>渐变图为封面占位；除明确标注的项目实践外，其余为学习经历，不代表已完成的独立作品。详情链接可替换为实际案例。</p>
       </div>
     </section>
 
