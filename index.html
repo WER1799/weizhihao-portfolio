@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
@@ -228,6 +228,55 @@
     .project-link:hover span { transform: translate(3px, -2px); }
     .work-footnote { margin: 23px 0 0; color: #8796aa; font-size: 12px; }
     .work-footnote strong { color: var(--orange); font-weight: 600; }
+    .project-dialog {
+      width: min(760px, calc(100% - 32px));
+      max-height: min(84vh, 760px);
+      padding: 0;
+      overflow: auto;
+      border: 1px solid rgba(177, 198, 222, .2);
+      border-radius: 22px;
+      background: var(--surface);
+      color: var(--ink);
+      box-shadow: 0 32px 100px rgba(2, 8, 23, .62);
+    }
+    .project-dialog::backdrop { background: rgba(3, 8, 18, .78); backdrop-filter: blur(8px); }
+    .dialog-content { padding: clamp(22px, 5vw, 36px); }
+    .dialog-topline { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+    .dialog-topline h2 { margin: 12px 0 8px; font-size: clamp(24px, 4vw, 34px); line-height: 1.25; letter-spacing: -.05em; }
+    .dialog-intro { margin: 0 0 22px; color: var(--muted); font-size: 13px; }
+    .dialog-close {
+      width: 38px; height: 38px; display: grid; flex: 0 0 auto; place-items: center;
+      border: 1px solid var(--line); border-radius: 11px; background: rgba(8, 15, 28, .4);
+      color: var(--ink); font-size: 20px; cursor: pointer;
+    }
+    .dialog-close:hover { border-color: rgba(34, 211, 238, .45); color: var(--cyan); }
+    .dialog-projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .dialog-project {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: rgba(8, 15, 28, .32);
+    }
+    .dialog-project img { width: 100%; height: 164px; display: block; object-fit: cover; background: var(--bg-deep); }
+    .dialog-project img.portrait { object-fit: contain; }
+    .dialog-project-copy { padding: 15px; }
+    .dialog-project-copy h3 { margin: 0 0 7px; font-size: 15px; line-height: 1.5; }
+    .dialog-project-copy p { min-height: 58px; margin: 0; color: var(--muted); font-size: 11px; line-height: 1.7; }
+    .dialog-download {
+      min-height: 39px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 13px;
+      padding: 0 12px;
+      border: 1px solid rgba(34, 211, 238, .28);
+      border-radius: 10px;
+      background: rgba(34, 211, 238, .08);
+      color: var(--cyan);
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .dialog-download:hover { background: rgba(34, 211, 238, .15); }
 
     .about-grid { display: grid; grid-template-columns: .88fr 1.12fr; align-items: stretch; gap: 24px; }
     .portrait-panel, .about-copy-panel {
@@ -276,6 +325,31 @@
     .skill-list { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 20px; }
     .skill-tag { padding: 6px 10px; border: 1px solid var(--line); border-radius: 999px; color: #c5d0de; font-size: 10px; }
     .skill-tag:first-child { border-color: rgba(34,211,238,.28); color: var(--cyan); }
+
+    .application-section { padding-top: 16px; padding-bottom: 90px; }
+    .application-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      padding: 25px 28px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(25, 38, 59, .86), rgba(17, 27, 45, .74));
+      box-shadow: 0 12px 35px rgba(2, 8, 23, .16);
+    }
+    .application-card h2 { margin: 8px 0 0; font-size: 21px; letter-spacing: -.035em; }
+    .application-url {
+      max-width: 100%;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      overflow-wrap: anywhere;
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 650;
+    }
+    .application-url:hover { color: #a5f3fc; }
 
     .contact-section { padding-top: 86px; border-top: 1px solid rgba(177, 198, 222, .07); background: linear-gradient(180deg, rgba(11, 18, 34, .35), transparent); }
     .contact-panel {
@@ -339,6 +413,11 @@
       .portrait-panel { min-height: 310px; }
       .portrait-art { width: 142px; height: 185px; }
       .about-copy-panel { min-height: unset; }
+      .application-section { padding-top: 0; padding-bottom: 66px; }
+      .application-card { align-items: flex-start; flex-direction: column; padding: 21px; }
+      .dialog-projects { grid-template-columns: 1fr; }
+      .dialog-project img { height: 190px; }
+      .dialog-project-copy p { min-height: unset; }
       .contact-section { padding-top: 66px; }
       .contact-panel { grid-template-columns: 1fr; gap: 23px; }
     }
@@ -371,6 +450,7 @@
         <a class="nav-link" href="#home" aria-current="location">首页</a>
         <a class="nav-link" href="#work">作品记录</a>
         <a class="nav-link" href="#about">关于我</a>
+        <a class="nav-link" href="#applications">应用</a>
         <a class="nav-link" href="#contact">联系</a>
         <a class="nav-link nav-cta" href="#contact">聊一聊 <span aria-hidden="true">↗</span></a>
       </div>
@@ -415,10 +495,9 @@
             <div class="project-content">
               <div class="project-meta"><span>年份待补</span><span class="project-kind">项目实践</span></div>
               <h3>新创 IP 产品设计</h3>
-              <p class="project-description">参与科大讯飞产教融合 X+AI 项目，独立完成创意构思与方案设计；目前暂无可展示的项目成果。</p>
+              <p class="project-description">参与科大讯飞产教融合 X+AI 项目，独立构思并设计 IP 方案；可在项目详情中查看两份 AI 辅助创作参赛作品。</p>
               <div class="tag-list"><span class="tag">X+AI</span><span class="tag">创意构思</span><span class="tag">IP 设计</span></div>
-              <!-- 将 #contact 替换为真实案例详情页或作品链接；当前链接用于提示联系入口。 -->
-              <a class="project-link" href="#contact" title="作品详情链接占位，请替换为真实链接">了解项目状态 <span aria-hidden="true">↗</span></a>
+              <a class="project-link" id="open-ip-projects" href="#project-details" aria-haspopup="dialog" aria-controls="ip-project-dialog">了解项目状态 <span aria-hidden="true">↗</span></a>
             </div>
           </article>
 
@@ -523,6 +602,21 @@
       </div>
     </section>
 
+    <section class="section application-section" id="applications" aria-labelledby="applications-title">
+      <div class="container">
+        <div class="application-card reveal">
+          <div>
+            <span class="eyebrow">Application</span>
+            <h2 id="applications-title">南苑交易网</h2>
+          </div>
+          <a class="application-url" href="https://nanyuan-market.app.workbuddy.host/?sharecode=P3U5Y3PZEQ" target="_blank" rel="noopener noreferrer">
+            https://nanyuan-market.app.workbuddy.host/?sharecode=P3U5Y3PZEQ
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section class="section contact-section" id="contact" aria-labelledby="contact-title">
       <div class="container">
         <div class="contact-panel reveal">
@@ -551,6 +645,37 @@
       </div>
     </section>
   </main>
+
+  <dialog class="project-dialog" id="ip-project-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-content">
+      <div class="dialog-topline">
+        <div>
+          <span class="eyebrow">X+AI · Project showcase</span>
+          <h2 id="dialog-title">新创 IP 产品设计</h2>
+        </div>
+        <button class="dialog-close" type="button" aria-label="关闭项目详情">×</button>
+      </div>
+      <p class="dialog-intro">两份个人参赛作品方案，分别呈现 IP 角色设计与 AI 辅助创意海报。点击下方按钮下载完整 PPT。</p>
+      <div class="dialog-projects">
+        <article class="dialog-project">
+          <img class="portrait" src="assets/starlight-mechanical-cover.png" alt="星轨机巧·未来角色设计作品封面">
+          <div class="dialog-project-copy">
+            <h3>星轨机巧·未来 — IP 作品参赛展示</h3>
+            <p>AI 辅助 IP 角色设计全案，包含角色设定、视觉资产、活动美陈及周边延展。</p>
+            <a class="dialog-download" href="assets/starlight-mechanical-project.pptx" download>下载 PPT 参赛方案 <span aria-hidden="true">↓</span></a>
+          </div>
+        </article>
+        <article class="dialog-project">
+          <img src="assets/ai-warrior-cover.png" alt="AI 战神于末日空洞生存海报作品封面">
+          <div class="dialog-project-copy">
+            <h3>AI 战神于末日空洞生存 — 参赛作品展示</h3>
+            <p>以末日科幻为主题的 AI 辅助创意海报设计，包含创作流程、设计解析与产品方案。</p>
+            <a class="dialog-download" href="assets/ai-warrior-poster-project.pptx" download>下载 PPT 参赛方案 <span aria-hidden="true">↓</span></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </dialog>
 
   <footer class="site-footer">
     <div class="container footer-inner">
@@ -585,6 +710,16 @@
     window.addEventListener("scroll", updateCurrentSection, { passive: true });
     window.addEventListener("resize", updateCurrentSection);
     updateCurrentSection();
+
+    const projectDialog = document.getElementById("ip-project-dialog");
+    document.getElementById("open-ip-projects").addEventListener("click", event => {
+      event.preventDefault();
+      projectDialog.showModal();
+    });
+    projectDialog.querySelector(".dialog-close").addEventListener("click", () => projectDialog.close());
+    projectDialog.addEventListener("click", event => {
+      if (event.target === projectDialog) projectDialog.close();
+    });
 
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
